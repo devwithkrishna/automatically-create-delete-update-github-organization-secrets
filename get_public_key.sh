@@ -21,7 +21,7 @@ response=$(curl -sL \
 if [ ! -z "$response" ]; then
   # Extracting the public key from the response
   public_key=$(echo "$response" | jq -r '.key')
-  echo "Public key for $ORGANIZATION: "$public_key" "
+  echo "$public_key"
 
 else
   echo "Failed to retrieve public key for $ORGANIZATION. Response is empty."
