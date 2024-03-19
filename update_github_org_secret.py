@@ -22,6 +22,9 @@ def create_or_update_organization_secret_github(organization: str, secret_name: 
     The token must have the following permission set: organization_secrets:write
     """
     encrypted_secret = os.getenv('ENCRYPTED_SECRET')
+    if not encrypted_secret:
+        print("ENCRYPTED_SECRET environment variable is not set or is empty.")
+    print(f'encrypted sec is: {encrypted_secret}')
     ist_now_formatted = current_ist_time()
     github_org_secret_endpoint = f"https://api.github.com/orgs/{organization}/actions/secrets/{secret_name}"
 
