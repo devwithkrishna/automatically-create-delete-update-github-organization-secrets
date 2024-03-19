@@ -19,7 +19,7 @@ def encrypt(public_key: str, secret_value: str) -> str:
 def main():
     public_key = os.environ.get("PUBLIC_KEY")
     secret_value = os.environ.get("SECRET_VALUE")
-    # public_key = "rx3nZO3Pcjg+EfRugHgSeb1cmf6WpxmGPVrxrCa3sEU="
+    # public_key = "<public key here for local testing>"
     # secret_value = "Krishnadhas"
 
     if not (public_key and secret_value):
@@ -30,6 +30,7 @@ def main():
         encrypted_secret = encrypt(public_key, secret_value)
         print(f"Encrypted Secret: {encrypted_secret}")
         os.environ['ENCRYPTED_SECRET'] = encrypted_secret
+        print(f"Encrypted secret added as a environment variable")
     except Exception as e:
         print(f"Error encrypting secret: {e}")
         exit(1)
