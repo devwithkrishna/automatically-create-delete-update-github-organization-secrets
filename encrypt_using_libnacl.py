@@ -31,6 +31,7 @@ def main():
         print(f"Encrypted Secret: {encrypted_secret}")
         os.environ['ENCRYPTED_SECRET'] = encrypted_secret
         print(f"Encrypted secret added as a environment variable")
+        return encrypted_secret
     except Exception as e:
         print(f"Error encrypting secret: {e}")
         exit(1)
