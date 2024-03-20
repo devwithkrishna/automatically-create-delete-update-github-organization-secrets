@@ -28,8 +28,8 @@ def main():
 
     try:
         encrypted_secret = encrypt(public_key, secret_value)
+        os.system(f'echo "ENCRYPTED_SECRET={encrypted_secret}" >> $GITHUB_ENV')
         print(f"Encrypted Secret: {encrypted_secret}")
-        os.environ['ENCRYPTED_SECRET'] = encrypted_secret
         print(f"Encrypted secret added as a environment variable")
         return encrypted_secret
     except Exception as e:
