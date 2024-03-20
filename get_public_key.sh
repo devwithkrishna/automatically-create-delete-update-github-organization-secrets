@@ -9,7 +9,6 @@ if [ -z "$ORGANIZATION" ]; then
   echo "Usage: $0 <Organization name>"
   exit 1
 fi
-
 # Making the API call and capturing the response
 response=$(curl -sL \
   -H "Accept: application/vnd.github+json" \
@@ -17,8 +16,7 @@ response=$(curl -sL \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/orgs/$ORGANIZATION/actions/secrets/public-key)
 
-echo $response
-sleep 10
+
 # Checking if the request was successful (status code 200)
 if [ ! -z "$response" ]; then
   # Extracting the public key from the response

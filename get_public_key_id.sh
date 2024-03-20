@@ -17,7 +17,6 @@ response=$(curl -sL \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/orgs/$ORGANIZATION/actions/secrets/public-key)
 
-echo $response
 sleep 10
 # Checking if the request was successful (status code 200)
 if [ ! -z "$response" ]; then
