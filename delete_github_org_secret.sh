@@ -18,9 +18,3 @@ response=$(curl -sL \
   https://api.github.com/orgs/$ORGANIZATION/actions/secrets/$SECRET_NAME)
 
 
-# Checking if the request was successful (status code 200)
-if [[ "$response" == *"Status: 204"* ]]; then
-echo "Secret $SECRET_NAME deleted successfully from organization $ORGANIZATION"
-else
-    echo "Failed to delete secret $SECRET_NAME from organization $ORGANIZATION"
-fi
