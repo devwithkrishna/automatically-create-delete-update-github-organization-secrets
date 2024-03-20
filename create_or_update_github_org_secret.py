@@ -39,8 +39,10 @@ def create_or_update_organization_secret_github(organization: str, secret_name: 
         "key_id": os.getenv('PUBLIC_KEY_ID')
     }
     response = requests.put(github_org_secret_endpoint, headers=headers, json=data)
-    print(response.json())
-    print(f"Secret {secret_name} created / updated on {organization} at {ist_now_formatted}")
+    if response.status_code == '201':
+        print(f"Secret {secret_name} created {organization} at {ist_now_formatted}")
+    else:
+        print(f"Secret {secret_name} updated on {organization} at {ist_now_formatted}")
 
 
 def main():
