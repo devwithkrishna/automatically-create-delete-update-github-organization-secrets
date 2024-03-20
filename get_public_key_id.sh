@@ -22,9 +22,9 @@ sleep 10
 # Checking if the request was successful (status code 200)
 if [ ! -z "$response" ]; then
   # Extracting the public key from the response
-  public_key=$(echo "$response" | jq -r '.key')
-  echo "$public_key"
+  public_key_id=$(echo "$response" | jq -r '.key_id')
+  echo "$public_key_id"
 
 else
-  echo "Failed to retrieve public key for $ORGANIZATION. Response is empty."
+  echo "Failed to retrieve public key id for $ORGANIZATION. Response is empty."
 fi

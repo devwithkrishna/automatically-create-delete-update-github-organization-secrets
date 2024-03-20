@@ -35,7 +35,8 @@ def create_or_update_organization_secret_github(organization: str, secret_name: 
     }
     data = {
         "encrypted_value": encrypted_secret,
-        "visibility": "all"
+        "visibility": "all",
+        "key_id": os.getenv('PUBLIC_KEY_ID')
     }
     response = requests.put(github_org_secret_endpoint, headers=headers, json=data)
     print(response.json())
